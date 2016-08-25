@@ -16,17 +16,16 @@ const url = `http://dev.markitondemand.com/MODApis/Api/v2/InteractiveChart/json?
 
 // })
 
-
+// Refactored
 get(url, (err, res, body) => {
 	// Example of object destructuring
+	// Declaring variables with keys (which must be literal to parsed object keys)
 	let stockData = JSON.parse(body),
 	{Elements, Labels} = stockData,
 	{DataSeries, Symbol} = Elements[0],
 	{close} = DataSeries,
 	{values} = close
-	console.log("values", values);
-	// This needs to be refactored with object destructuring
-	//let myStockValues = stockData.Elements[0].DataSeries.close.values
+
 	let sum = values.reduce( (prev, curr) => prev + curr )
 	let stockAvg = (sum/values.length).toFixed(2)
 	console.log("avg", stockAvg);
