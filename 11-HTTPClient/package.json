@@ -1,0 +1,15 @@
+{
+  "name": "11-HTTPClient",
+  "version": "1.0.0",
+  "description": "Write a program that performs an HTTP GET request to get the average stock price. Use the first argument for a ticker symbol. Use the `get` method in the `http` module with the API provided by [MarkitOnDemand](http://dev.markitondemand.com/).",
+  "main": "11.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.74.0"
+  }
+}
