@@ -8,21 +8,13 @@ const { load } = require('cheerio')
 
 const server = createServer()
 
-// Moved into own folder, returning title to browser.
-server.on('request', (req, res) => {
-  get('https://reddit.com', (err, _, body) => {
-  	const $ = load(body)
-  	const siteTitle = $('title')
-      .toArray()
-      .map($)
-      .map(el => ({
-        title: el.text(),
-        link: el.attr('href')
-      }))
+// CLI takes arg http://reddit.com
+get(args[0], (err, _, body) => {
+	const $ = load(body)
+	const siteTitle = $('title')
+  process.stdout.write(`${siteTitle[0].children[0].data}\n`)
+  process.exit()
 
-  	res.end(JSON.stringify(siteTitle))
-
-  })
 })
 
 server.listen(8080)
