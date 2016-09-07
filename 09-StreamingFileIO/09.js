@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-"use strict";
+"use strict"
 
 // Grab the destination file argument
 const [,, ...args] = process.argv
